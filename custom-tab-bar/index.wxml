@@ -1,0 +1,11 @@
+<!--components/userTabbar/userTabbar.wxml-->
+<view class="{{ tabbarPos=='top'? 'uid-tabbarTop': 'uid-tabbarBottom'}} uid-tabBar">
+  <view class="{{ tabbarPos=='top'? 'uid-borderBottom': 'uid-borderTop'}} uid-tab-bar-border"></view>
+  <view class="uid-tabBar-item" wx:for="{{tabBars}}" wx:for-item="item" wx:key="item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <view>
+      <image wx:if="{{style==='pic'}}" class="uid-picIcon" src="{{selected===index?item.activeIconPath:item.iconPath}}"></image>
+      <view wx:if="{{style==='icon'}}"><icon style="color:{{selected===index?selectedColor:color}}" class="{{item.iconClass}} uid-iconSize"></icon></view>
+      <view style="color:{{selected===index?selectedColor:color}}">{{item.text}}</view>
+    </view>
+  </view>
+</view>
